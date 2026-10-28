@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Чехов-Бар | Крафтовый бар & Паб в Таганроге</title>
+  <meta name="description" content="Чехов-Бар на Чехова 98 в Таганроге. Крафтовое пиво, домашние настойки, сочные бургеры, концерты и квизы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0e0d0e;
+      --card: #181617;
+      --orange: #ff5722;
+      --amber: #ff9800;
+      --text: #f0edf0;
+      --text-muted: #8c8588;
+      --border: rgba(255, 87, 34, 0.2);
+      --font-title: 'Oswald', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--dark); color: var(--text); font-family: var(--font-body); line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    header { background: rgba(14, 13, 14, 0.95); border-bottom: 1px solid var(--border); padding: 18px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: var(--font-title); font-size: 1.7rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; }
+    .brand span { color: var(--orange); }
+    .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 24px; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--orange); }
+    .btn { display: inline-block; padding: 12px 28px; border-radius: 4px; font-weight: 700; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.2s; }
+    .btn-orange { background: var(--orange); color: #fff; box-shadow: 0 4px 20px rgba(255, 87, 34, 0.4); }
+    .btn-orange:hover { background: #e64a19; transform: translateY(-2px); }
+    .btn-outline { border: 1.5px solid var(--border); color: #fff; }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    .hero { padding: 110px 0 80px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(255, 87, 34, 0.12) 0%, transparent 60%); }
+    .badge { display: inline-block; padding: 6px 16px; border: 1px solid var(--orange); color: var(--orange); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; border-radius: 30px; }
+    .hero h1 { font-family: var(--font-title); font-size: 4.2rem; line-height: 1.05; text-transform: uppercase; margin-bottom: 20px; font-weight: 700; }
+    .hero p { color: var(--text-muted); font-size: 1.2rem; max-width: 620px; margin: 0 auto 36px; }
+    .hero-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 60px 0; }
+    .feat { background: var(--card); border: 1px solid var(--border); padding: 32px 24px; border-radius: 8px; text-align: center; }
+    .feat span { font-size: 2.4rem; display: block; margin-bottom: 12px; }
+    .feat h3 { font-family: var(--font-title); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 8px; color: #fff; }
+    .feat p { color: var(--text-muted); font-size: 0.9rem; }
+
+    .menu-sec { padding: 60px 0; }
+    .sec-head { text-align: center; margin-bottom: 40px; }
+    .sec-head h2 { font-family: var(--font-title); font-size: 2.8rem; text-transform: uppercase; margin-bottom: 8px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .item-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 22px 26px; display: flex; justify-content: space-between; align-items: baseline; }
+    .item-card h4 { font-family: var(--font-title); font-size: 1.3rem; text-transform: uppercase; margin-bottom: 4px; color: #fff; }
+    .item-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .item-card .price { font-family: var(--font-title); font-size: 1.4rem; font-weight: 700; color: var(--orange); margin-left: 20px; white-space: nowrap; }
+
+    .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 48px 36px; margin: 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .contact-box h2 { font-family: var(--font-title); font-size: 2.5rem; text-transform: uppercase; margin-bottom: 16px; }
+    .contact-info p { margin-bottom: 12px; color: var(--text-muted); }
+    .contact-info strong { color: #fff; }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .features { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .contact-box { grid-template-columns: 1fr; padding: 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">ЧЕХОВ-БАР<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">О баре</a>
+        <a href="#menu">Крафт & Меню</a>
+        <a href="#contacts">Контакты</a>
+        <a href="https://t.me/chehovbar" target="_blank" class="btn btn-orange" style="margin-left: 16px;">Telegram</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="badge">Таганрог • ул. Чехова, 98</span>
+        <h1>Правильный крафт.<br>Честная кухня.</h1>
+        <p>Городской лофт-паб с душой: 16 сортов крана, фирменные сочные бургеры, домашние настойки и вечера живой музыки.</p>
+        <div class="hero-btns">
+          <a href="#menu" class="btn btn-orange">Смотреть меню</a>
+          <a href="https://t.me/chehovbar" target="_blank" class="btn btn-outline">Канал в Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="features" id="about">
+        <div class="feat">
+          <span>🍺</span>
+          <h3>16 сортов на кранах</h3>
+          <p>Лучшие российские и импортные крафтовые пивоварни: IPA, стауты, сауры и сидры.</p>
+        </div>
+        <div class="feat">
+          <span>🍔</span>
+          <h3>Бургеры и гриль</h3>
+          <p>Мраморная котлета, бриошь ручной выпечки, рваная свинина и крылья BBQ.</p>
+        </div>
+        <div class="feat">
+          <span>🥃</span>
+          <h3>Авторские настойки</h3>
+          <p>Более 10 видов настоек собственного приготовления: вишня на бурбоне, облепиха, смородина.</p>
+        </div>
+      </div>
+
+      <section class="menu-sec" id="menu">
+        <div class="sec-head">
+          <h2>Хиты кухни и бара</h2>
+          <p>То, за чем приходят каждую неделю</p>
+        </div>
+        <div class="menu-grid">
+          <div class="item-card">
+            <div>
+              <h4>Бургер «Чехов» с беконом</h4>
+              <p>Говяжья котлета Black Angus, хрустящий бекон, сыр чеддер, соус BBQ и картофель фри</p>
+            </div>
+            <div class="price">490 ₽</div>
+          </div>
+          <div class="item-card">
+            <div>
+              <h4>Сет фирменных настоек (5 шотов)</h4>
+              <p>Облепиха-розмарин, вишня с корицей, черная смородина, малина-мята, сливочный лимончелло</p>
+            </div>
+            <div class="price">550 ₽</div>
+          </div>
+          <div class="item-card">
+            <div>
+              <h4>Острые крылья Buffalo</h4>
+              <p>Хрустящие куриные крылышки в остро-сладком соусе с соусом Блю Чиз и сельдереем</p>
+            </div>
+            <div class="price">420 ₽</div>
+          </div>
+          <div class="item-card">
+            <div>
+              <h4>Крафтовый IPA / Stout (0.5 л)</h4>
+              <p>Свежий розлив с крана от ведущих российских крафтовых пивоварен</p>
+            </div>
+            <div class="price">320 ₽</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="contact-box" id="contacts">
+        <div class="contact-info">
+          <h2>Ждем в гости в Чехов-Баре</h2>
+          <p>📍 <strong>Адрес:</strong> г. Таганрог, ул. Чехова, 98</p>
+          <p>🕒 <strong>График работы:</strong> Вс–Чт: 15:00 – 01:00, Пт–Сб: 15:00 – 03:00</p>
+          <p>📞 <strong>Бронь столов:</strong> +7 (928) 124-12-72 (Евгений) / +7 (928) 104-00-99 (Дмитрий)</p>
+          <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://t.me/chehovbar" target="_blank" class="btn btn-orange">Telegram-канал</a>
+            <a href="https://vk.com/chehovbartgn" target="_blank" class="btn btn-outline">ВКонтакте</a>
+          </div>
+        </div>
+        <div style="background: rgba(255,87,34,0.08); border-radius: 6px; padding: 32px; text-align: center;">
+          <h3 style="font-family: var(--font-title); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 10px;">Квизы и музыка</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Каждую среду проводим интеллектуальные игры, а по пятницам и субботам — акустические концерты и диджеи.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Чехов-Бар Таганрог. Демонстрационный прототип сайта.</p>
+    </div>
+  </footer>
+</body>
+</html>
